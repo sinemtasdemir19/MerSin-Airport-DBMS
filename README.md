@@ -1,12 +1,7 @@
-# Database  Management  System
-### -MerSin  Airport-
-
+# MerSin  Airport - Database  Management  System
 The aim of this project is to establish an airport database, which is essential for effective **airport management**. By successfully creating this database, Mersin Airport can now be efficiently managed, ensuring smooth operations and eliminating any potential issues.
 
-
-
 ## Business  Rules
-
 1.  Airport has name, address, country and city information. Each airport has different id  number.
 2.  An airport must have at least one employee but there can also be more than one  employee.  An  employee  must  work  only  one  airport.
 3.  Employee information should include name, surname, gender, and year of  experience.  Each  employee  has  different id  number.
@@ -36,10 +31,50 @@ The aim of this project is to establish an airport database, which is essential 
 28.  A  ticket  can  book  by  only  one  passenger,  a  passenger can  book  a  ticket  or  no  ticket.
 29.  Passenger information should include name, surname, gender, age, and identity  number.  Each  passenger  has different id  number.
 30.  A passenger can have no baggage or many baggage. A baggage should belong only  one  passenger.
-
-31. Baggage information should include weight, and type. Each baggage has different id  number.
-<br/>
+31. Baggage information should include weight, and type. Each baggage has different id  number.</br>
 
 ## Entity  Relationship Model
 ![](MerSinLizbon.drawio.png)
 
+## Relational Model 
+**Airport** (AirportID: varchar, Name: varchar, Country: varchar, City: varchar, Address: varchar)</br>
+**Airfield** (AirfieldID: serial, Length: integer, AirportID: varchar)</br>
+**Passenger** (PassengerID: serial, Name: varchar, Surname: varchar, Gender: char(1), Age: integer, IdentityNumber: integer(11))</br>
+**Baggage** (BaggageID: serial, Type: varchar, Weight: integer, PassagnerID: serial)</br>
+**PlaneAgent** (PlaneAgentID: integer, Name: varchar, NumberOfPlane: integer, NumberOfEmployee: integer)</br>
+**Employee** (EmployeeID: serial, Name: varchar, Surname: varchar, Gender: char(1), YearOfExperience: integer, AirportID: varchar, EmployeeType: char(1))</br>
+**Manager** (EmployeeID: serial)</br>
+**Security** (EmployeeID: serial, UseGun: boolean)</br>
+**PassengerServiceOfficer** (EmployeeID: serial, WorkArea: varchar)</br>
+**CleaningStaffMember** (EmployeeID: serial, Company: varchar)</br>
+**Plane** (PlaneID: serial, BladeType: varchar, EngineType: varchar, FeulType: varchar, Weight: integer, AirportID: varchar, PlaneType: char(1)) </br>
+**MilitaryPlane** (PlaneID: serial, Equipment: boolean, NumberOfSeat: integer, NumberOfMilitary: integer)</br>
+**FireFightingPlane** (PlaneID: serial, TankCapacity: integer, NumberOfFireman: integer)</br>
+**CargoPlane** (PlaneID: serial, Capacity:integer)</br>
+**PassangerPlane** (PlaneID: serial, NumberOfStewardess: integer, NumberOfSeat: integer, PlaneAgentID: integer)</br>
+**Flight** (FlightID: serial, Date: date, NumberOfBookedSeat: integer, AirportID: varchar)</br>
+**Ticket** (TicketID: serial,  SeatNumber: varchar, Price: integer, PassengerID: serial, FlightID: serial, TicketType: char(1))</br>
+**EconomicTicket** (TicketID: serial)</br>
+**BusinessTicket** (TicketID: serial)</br>
+**Pilot** (PilotID: serial, Name: varchar, Surname: varchar, Gender: char(1), YearOfExperience: integer, PlaneAgentID: integer, PilotType: char(1))</br>
+**ChiefPilot** (PilotID: serial)</br>
+**co-Pilot** (PilotID: serial)</br>
+**PlanePilot** (PlaneID: serial, PilotID: serial)</br>
+**Stewardess** (StewardessID: serial, Name: varchar, Surname: varchar, Gender: char(1), YearOfExperience: integer, PlaneAgentID: integer, StewardessType: char(1))</br>
+**Domestic** (StewardessID: serial)</br>
+**International** (StewardessID: serial)</br>
+**PassangerPlaneStewardess** (PlaneID: serial, StewardessID: serial)</br>
+
+## Screenshots of Application
+
+### Search
+<img width="454" alt="Picture1" src="https://github.com/user-attachments/assets/6c9d23c5-32df-4add-93df-2d51203458d4"></br>
+### Insert
+<img width="454" alt="Picture2" src="https://github.com/user-attachments/assets/5018efaa-7a56-4d14-b465-8f628afba525"></br>
+<img width="454" alt="Picture3" src="https://github.com/user-attachments/assets/2b7ae744-3fa5-4bf1-896a-a9aada09277c"></br>
+### Update
+<img width="454" alt="Picture4" src="https://github.com/user-attachments/assets/879621c7-88ca-45cf-8a28-1880cecd6a31"></br>
+<img width="454" alt="Picture5" src="https://github.com/user-attachments/assets/cc7c9f1c-8b35-4a2e-8d16-fe4c41d803bf"></br>
+### Delete
+<img width="454" alt="Picture6" src="https://github.com/user-attachments/assets/1fb123b8-1aa8-4e7d-8c19-16386095a0fb"></br>
+<img width="454" alt="Picture7" src="https://github.com/user-attachments/assets/5a23aebe-cd7c-4225-99e6-a6054098030f">
